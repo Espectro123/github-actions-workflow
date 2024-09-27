@@ -12,4 +12,4 @@ elif [[ "$1" = "refs/heads/dev" ]]; then
     echo "dev"
 fi
 
-return $environment
+echo $environment
