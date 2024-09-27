@@ -2,10 +2,10 @@
 
 set -e
 
-if [[ "$1" = "refs/head/main" ]]; then
+if [[ "$1" = "refs/heads/main" ]]; then
     echo "Entorno Productivo"
     export environment="prod"
-elif [[ "$1" = "refs/head/dev" ]]; then
+elif [[ "$1" = "refs/heads/dev" ]]; then
     echo "Entorno Desarrollo"
     export environment="dev"
 fi

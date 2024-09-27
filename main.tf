@@ -1,8 +1,24 @@
+data "aws_ami" "ubuntu" {
+  most_recent = true
 
-module "instances" {
+  filter {
+    name   = "Enrique-workflow"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
+  }
 
-    source = "./instances"
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
 
-    instances_names = ["enrique-instancia1"]
+  owners = ["099720109477"] # Canonical
+}
 
+resource "aws_instance" "web" {
+  ami           = "ami-0ebfd941bbafe70c6"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "Enrique"
+  }
 }
