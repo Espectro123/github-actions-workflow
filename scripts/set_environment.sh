@@ -5,10 +5,10 @@ set -e
 environment=""
 
 if [[ "$1" = "refs/heads/main" ]]; then
-    environment="prod"
+    environment="environment=prod"
     echo "prod"
 elif [[ "$1" = "refs/heads/dev" ]]; then
-    environment="dev"
+    environment="environment=dev"
     echo "dev"
 fi
 

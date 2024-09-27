@@ -37,9 +37,9 @@ jobs:
       - name: select_workspace
         run: |
           bash ./scripts/set_environment.sh "${{ github.ref }}" >> $GITHUB_ENV
-          echo $GITHUB_ENV
-          terraform workspace select -or-create $GITHUB_ENV
+          echo $environment
+          terraform workspace select -or-create $environment
 
       - name: terraform_plan
         run: |
-          terraform plan -var-file $GITHUB_ENV.tfvars -auto-aprove
+          terraform plan -var-file $environment.tfvars -auto-aprove
