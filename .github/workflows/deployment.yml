@@ -30,13 +30,9 @@ jobs:
           aws-secret-access-key: '${{ secrets.AWS_SECRET_ACCESS_KEY }}'
           aws-region: 'us-east-2'
 
-      - name: set_environment
-        run: |
-          bash scripts/set_environment.sh ${{ github.ref }}
-
       - name: select_workspace
         run: |
-          echo $environment
+          bash scripts/set_environment.sh ${{ github.ref }}
           terraform workspace select $environment
 
       - name: terraform init
