@@ -36,7 +36,7 @@ jobs:
   
       - name: select_workspace
         run: |
-          if [[ "${{ github.ref }}" == "refs/heads/master" ]]
+          if [[ "${{ github.ref }}" == "refs/heads/main" ]]
           then
             echo "Entorno productivo"
             echo "environment=prod" >> $GITHUB_ENV
