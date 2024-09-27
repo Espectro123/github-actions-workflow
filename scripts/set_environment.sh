@@ -2,10 +2,14 @@
 
 set -e
 
+environment=""
+
 if [[ "$1" = "refs/heads/main" ]]; then
-    echo "Entorno Productivo"
-    export environment="prod"
+    environment="prod"
+    echo "prod"
 elif [[ "$1" = "refs/heads/dev" ]]; then
-    echo "Entorno Desarrollo"
-    export environment="dev"
+    environment="dev"
+    echo "dev"
 fi
+
+return $environment
